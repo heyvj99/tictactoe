@@ -26,103 +26,187 @@ function Gameboard(player1, player2) {
 
   let getCurrentPlayer = () => currPlayer;
 
-  let isWinner = (tileId) => {
+  let didWin = (tileId) => {
+    let winningtiles = [];
+    let winnerfound = false;
     let mark = currPlayer.getPlayerName();
     switch (Number(tileId)) {
       case 0:
-        if (
-          (allTiles[0] == mark && allTiles[1] == mark && allTiles[2] == mark) ||
-          (allTiles[0] == mark && allTiles[3] == mark && allTiles[6] == mark) ||
-          (allTiles[0] == mark && allTiles[4] == mark && allTiles[8] == mark)
-        ) {
-          return true;
+        console.log(`case ${tileId}`);
+        if (allTiles[1] == mark && allTiles[2] == mark) {
+          winningtiles.push(String(1));
+          winningtiles.push(String(2));
+          winningtiles.push(String(0));
+          winnerfound = true;
+        } else if (allTiles[3] == mark && allTiles[6] == mark) {
+          winningtiles.push(String(3));
+          winningtiles.push(String(6));
+          winningtiles.push(String(0));
+          winnerfound = true;
+        } else if (allTiles[4] == mark && allTiles[8] == mark) {
+          winningtiles.push(String(4));
+          winningtiles.push(String(8));
+          winningtiles.push(String(0));
+          winnerfound = true;
         }
         break;
 
       case 1:
-        if (
-          (allTiles[1] == mark && allTiles[0] == mark && allTiles[2] == mark) ||
-          (allTiles[1] == mark && allTiles[4] == mark && allTiles[7] == mark)
-        ) {
-          return true;
+        console.log(`case ${tileId}`);
+        if (allTiles[0] == mark && allTiles[2] == mark) {
+          winningtiles.push(String(1));
+          winningtiles.push(String(2));
+          winningtiles.push(String(0));
+          winnerfound = true;
+        } else if (allTiles[4] == mark && allTiles[7] == mark) {
+          winningtiles.push(String(4));
+          winningtiles.push(String(7));
+          winningtiles.push(String(1));
+          winnerfound = true;
         }
         break;
 
       case 2:
-        if (
-          (allTiles[0] == mark && allTiles[1] == mark && allTiles[2] == mark) ||
-          (allTiles[2] == mark && allTiles[4] == mark && allTiles[6] == mark) ||
-          (allTiles[2] == mark && allTiles[5] == mark && allTiles[8] == mark)
-        ) {
-          return true;
+        if (allTiles[1] == mark && allTiles[0] == mark) {
+          winningtiles.push(String(1));
+          winningtiles.push(String(2));
+          winningtiles.push(String(0));
+          winnerfound = true;
+        } else if (allTiles[4] == mark && allTiles[6] == mark) {
+          winningtiles.push(String(2));
+          winningtiles.push(String(6));
+          winningtiles.push(String(4));
+          winnerfound = true;
+        } else if (allTiles[5] == mark && allTiles[8] == mark) {
+          winningtiles.push(String(2));
+          winningtiles.push(String(8));
+          winningtiles.push(String(5));
+          winnerfound = true;
         }
         break;
 
       case 3:
-        if (
-          (allTiles[0] == mark && allTiles[3] == mark && allTiles[6] == mark) ||
-          (allTiles[3] == mark && allTiles[4] == mark && allTiles[5] == mark)
-        ) {
-          return true;
+        if (allTiles[0] == mark && allTiles[6] == mark) {
+          winningtiles.push(String(3));
+          winningtiles.push(String(0));
+          winningtiles.push(String(6));
+          winnerfound = true;
+        } else if (allTiles[4] == mark && allTiles[5] == mark) {
+          winningtiles.push(String(3));
+          winningtiles.push(String(4));
+          winningtiles.push(String(5));
+          winnerfound = true;
         }
         break;
 
       case 4:
-        if (
-          (allTiles[2] == mark && allTiles[4] == mark && allTiles[6] == mark) ||
-          (allTiles[3] == mark && allTiles[4] == mark && allTiles[5] == mark) ||
-          (allTiles[0] == mark && allTiles[4] == mark && allTiles[8] == mark) ||
-          (allTiles[1] == mark && allTiles[4] == mark && allTiles[7] == mark)
-        ) {
-          return true;
+        if (allTiles[2] == mark && allTiles[6] == mark) {
+          winningtiles.push(String(4));
+          winningtiles.push(String(2));
+          winningtiles.push(String(6));
+          winnerfound = true;
+        } else if (allTiles[3] == mark && allTiles[5] == mark) {
+          winningtiles.push(String(4));
+          winningtiles.push(String(3));
+          winningtiles.push(String(5));
+          winnerfound = true;
+        } else if (allTiles[0] == mark && allTiles[8] == mark) {
+          winningtiles.push(String(4));
+          winningtiles.push(String(0));
+          winningtiles.push(String(8));
+          winnerfound = true;
+        } else if (allTiles[1] == mark && allTiles[7] == mark) {
+          winningtiles.push(String(4));
+          winningtiles.push(String(1));
+          winningtiles.push(String(7));
+          winnerfound = true;
         }
         break;
 
       case 5:
-        if (
-          (allTiles[3] == mark && allTiles[4] == mark && allTiles[5] == mark) ||
-          (allTiles[2] == mark && allTiles[5] == mark && allTiles[8] == mark)
-        ) {
-          return true;
+        if (allTiles[2] == mark && allTiles[8] == mark) {
+          winningtiles.push(String(5));
+          winningtiles.push(String(2));
+          winningtiles.push(String(8));
+          winnerfound = true;
+        } else if (allTiles[3] == mark && allTiles[4] == mark) {
+          winningtiles.push(String(3));
+          winningtiles.push(String(4));
+          winningtiles.push(String(5));
+          winnerfound = true;
         }
         break;
 
       case 6:
-        if (
-          (allTiles[1] == mark && allTiles[3] == mark && allTiles[6] == mark) ||
-          (allTiles[6] == mark && allTiles[7] == mark && allTiles[8] == mark) ||
-          (allTiles[6] == mark && allTiles[4] == mark && allTiles[2] == mark)
-        ) {
-          return true;
+        if (allTiles[0] == mark && allTiles[3] == mark) {
+          winningtiles.push(String(0));
+          winningtiles.push(String(3));
+          winningtiles.push(String(6));
+          winnerfound = true;
+        } else if (allTiles[2] == mark && allTiles[4] == mark) {
+          winningtiles.push(String(6));
+          winningtiles.push(String(2));
+          winningtiles.push(String(4));
+          winnerfound = true;
+        } else if (allTiles[7] == mark && allTiles[8] == mark) {
+          winningtiles.push(String(6));
+          winningtiles.push(String(8));
+          winningtiles.push(String(7));
+          winnerfound = true;
         }
         break;
 
       case 7:
-        if (
-          (allTiles[1] == mark && allTiles[4] == mark && allTiles[7] == mark) ||
-          (allTiles[6] == mark && allTiles[7] == mark && allTiles[8] == mark)
-        ) {
-          return true;
+        if (allTiles[1] == mark && allTiles[4] == mark) {
+          winningtiles.push(String(1));
+          winningtiles.push(String(4));
+          winningtiles.push(String(7));
+          winnerfound = true;
+        } else if (allTiles[6] == mark && allTiles[8] == mark) {
+          winningtiles.push(String(7));
+          winningtiles.push(String(6));
+          winningtiles.push(String(8));
+          winnerfound = true;
         }
         break;
 
       case 8:
-        if (
-          (allTiles[0] == mark && allTiles[4] == mark && allTiles[8] == mark) ||
-          (allTiles[6] == mark && allTiles[7] == mark && allTiles[8] == mark) ||
-          (allTiles[2] == mark && allTiles[5] == mark && allTiles[8] == mark)
-        ) {
-          return true;
+        console.log(`Case is ${tileId}`);
+        if (allTiles[0] == mark && allTiles[4] == mark) {
+          winningtiles.push(String(4));
+          winningtiles.push(String(8));
+          winningtiles.push(String(0));
+          winnerfound = true;
+        } else if (allTiles[2] == mark && allTiles[5] == mark) {
+          winningtiles.push(String(2));
+          winningtiles.push(String(5));
+          winningtiles.push(String(8));
+          winnerfound = true;
+        } else if (allTiles[6] == mark && allTiles[7] == mark) {
+          winningtiles.push(String(6));
+          winningtiles.push(String(8));
+          winningtiles.push(String(7));
+          winnerfound = true;
         }
         break;
 
       default:
         return false;
     }
+    if (winnerfound == true) {
+      winningtiles.forEach((elem) => {
+        console.log(`elem Id is ${elem} of type ${typeof elem}`);
+        document.getElementById(`${Number(elem)}`).style.backgroundColor =
+          "yellow";
+      });
+      return winnerfound;
+    }
   };
 
-  let gameOver = (isWinner) => {
-    if (isWinner) {
+  let gameOver = (didWin) => {
+    if (didWin) {
+      document.querySelector(".whoseturn").style.color = "white";
+
       setTimeout(() => {
         console.log("Player Won");
         document.querySelector(
@@ -131,6 +215,8 @@ function Gameboard(player1, player2) {
       }, 1000);
     } else {
       setTimeout(() => {
+        document.querySelector(".whoseturn").innerHTML = "";
+
         console.log("GAME OVER");
         document.querySelector(
           ".gbcontainer"
@@ -144,7 +230,7 @@ function Gameboard(player1, player2) {
     getAllTiles,
     toggleTurn,
     getCurrentPlayer,
-    isWinner,
+    didWin,
     gameOver,
   };
 }
@@ -166,7 +252,7 @@ let game = (() => {
   allTiles.forEach((aTile) => {
     aTile.addEventListener("click", (evt) => {
       board.updateTile(evt, evt.target.id);
-      let gameover = board.isWinner(evt.target.id);
+      let gameover = board.didWin(evt.target.id);
       counter++;
       if (gameover) {
         board.gameOver(true);
