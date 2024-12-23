@@ -8,7 +8,6 @@ function CreatePlayer(symbol) {
 function Gameboard(player1, player2) {
   let allTiles = new Array(9).fill("");
   let currPlayer = player2;
-  let isGameOver = false;
 
   let updateTile = (event, tileId) => {
     allTiles[Number(tileId)] = currPlayer.getPlayerName();
@@ -196,8 +195,10 @@ function Gameboard(player1, player2) {
     if (winnerfound == true) {
       winningtiles.forEach((elem) => {
         console.log(`elem Id is ${elem} of type ${typeof elem}`);
-        document.getElementById(`${Number(elem)}`).style.backgroundColor =
-          "yellow";
+        let winningNode = document.getElementById(`${Number(elem)}`);
+        winningNode.style.backgroundColor = "rgb(232, 234, 0)";
+        winningNode.style.animation =
+          "scaleAnimation 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) 1 forwards";
       });
       return winnerfound;
     }
@@ -212,7 +213,13 @@ function Gameboard(player1, player2) {
         document.querySelector(
           ".gbcontainer"
         ).innerHTML = `<span> ${currPlayer.getPlayerName()} Wins!</span>`;
-      }, 1000);
+        document.querySelector(
+          ".buttoncontainer"
+        ).innerHTML = `<button class="bigbutton"> Play Again </button>`;
+        document.querySelector(".bigbutton").addEventListener("click", () => {
+          window.location.reload();
+        });
+      }, 3000);
     } else {
       setTimeout(() => {
         document.querySelector(".whoseturn").innerHTML = "";
@@ -220,7 +227,12 @@ function Gameboard(player1, player2) {
         console.log("GAME OVER");
         document.querySelector(
           ".gbcontainer"
-        ).innerHTML = `<span> Game Over </span> `;
+        ).innerHTML = `<span> Game Over </span>
+                        <button class="bigbutton"> Play Again </button> `;
+
+        document.querySelector(".bigbutton").addEventListener("click", () => {
+          window.location.reload();
+        });
       }, 1000);
     }
   };

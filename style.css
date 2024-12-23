@@ -1,11 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Coiny&display=swap");
+
 * {
   box-sizing: border-box;
+  font-family: "Coiny", Calibri, "Trebuchet MS", sans-serif;
+  color: rgb(46, 48, 60);
 }
 
 h1 {
   font-size: 3rem;
-  color: seagreen;
-  line-height: 3rem;
+  color: rgb(33, 130, 233);
+  line-height: 4rem;
   margin: 20px;
 }
 
@@ -14,6 +18,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* background-position: cover; */
+  background-image: url("./bg.jpg");
 }
 
 .whoseturn {
@@ -34,10 +40,13 @@ body {
 }
 
 .gametiles {
-  width: 40%;
+  width: 100%;
+  max-width: 600px;
   font-size: 5rem;
+  padding: 1rem;
+  border-radius: 20px;
   text-align: center;
-  background-color: antiquewhite;
+  background-color: rgb(250, 237, 215);
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   gap: 10px 10px;
@@ -46,11 +55,47 @@ body {
 .tile {
   text-align: center;
   font-size: 3rem;
-  min-height: 25vh;
-  background-color: tomato;
+  min-height: 20vh;
+  background-color: rgb(249, 143, 86);
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.3 ease-in-out;
+  /* animation: scaleAnimation 0.3 ease-in-out 1; */
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(1);
+  }
+
+  70% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.buttoncontainer {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.bigbutton {
+  border-radius: 1rem;
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: rgb(12, 130, 241);
+  border-color: whitesmoke;
+  border: 2px;
+  color: beige;
 }
 
 /* .heading {
