@@ -196,7 +196,7 @@ function Gameboard(player1, player2) {
       winningtiles.forEach((elem) => {
         console.log(`elem Id is ${elem} of type ${typeof elem}`);
         let winningNode = document.getElementById(`${Number(elem)}`);
-        winningNode.style.backgroundColor = "rgb(232, 234, 0)";
+        winningNode.style.backgroundColor = "#8CEDAE";
         winningNode.style.animation =
           "scaleAnimation 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) 1 forwards";
       });
