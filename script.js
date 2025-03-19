@@ -196,7 +196,7 @@ function Gameboard(player1, player2) {
       winningtiles.forEach((elem) => {
         console.log(`elem Id is ${elem} of type ${typeof elem}`);
         let winningNode = document.getElementById(`${Number(elem)}`);
-        winningNode.style.backgroundColor = "#8CEDAE";
+        winningNode.style.backgroundColor = "rgb(179, 249, 240)";
         winningNode.style.animation =
           "scaleAnimation 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) 1 forwards";
       });
@@ -227,8 +227,10 @@ function Gameboard(player1, player2) {
         console.log("GAME OVER");
         document.querySelector(
           ".gbcontainer"
-        ).innerHTML = `<span> Game Over </span>
-                        <button class="bigbutton"> Play Again </button> `;
+        ).innerHTML = `<span> Game Over </span>`;
+        document.querySelector(
+          ".buttoncontainer"
+        ).innerHTML = `<button class="bigbutton"> Play Again </button>`;
 
         document.querySelector(".bigbutton").addEventListener("click", () => {
           window.location.reload();
